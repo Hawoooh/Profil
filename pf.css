@@ -131,28 +131,25 @@ body {
 }
 
 .profile-wrapper {
-  width: 420px;              /* ukuran lingkaran */
-  height: 420px;             /* tinggi sama dengan lebar = bulat */
+  width: 420px;
+  height: 420px;
   border-radius: 50%;
-  padding: 8px;              /* ruang untuk gradasi */
+  padding: 8px;
   background: linear-gradient(135deg, #00f0ff, #ff00ff, #7700ff);
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 25px #00f0ff, 0 0 45px #ff00ff, 0 0 70px rgba(0, 0, 255, 0.6);
   animation: floating 3s ease-in-out infinite;
-  overflow: hidden; /* biar gambar nggak keluar dari lingkaran */
+  overflow: hidden;
 }
 
 .profile-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover;  /* bikin gambar isi lingkaran */
+  object-fit: cover;
   border-radius: 50%;
 }
-
-
-
 
 /* ABOUT */
 .about, .skills, .projects, .contact {
@@ -228,6 +225,76 @@ body {
   color: #ccc;
 }
 
+/* === MEDIA SOSIAL BERJEJER === */
+.social-row {
+  margin: 50px auto 30px; /* Jarak atas lebih besar biar tidak nempel */
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.social-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px 18px;
+  border-radius: 12px;
+  width: 120px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #00f0ff, 0 0 25px #ff00ff;
+}
+
+.social-box img.social-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+}
+
+.social-box p {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.social-box a {
+  color: #00f0ff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.social-box a:hover {
+  text-decoration: underline;
+}
+
+/* === SPOTIFY CARD === */
+.spotify-card {
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(0,240,255,0.15), rgba(255,0,255,0.15));
+  box-shadow: 0 0 25px rgba(0,240,255,0.3), 0 0 35px rgba(255,0,255,0.3);
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  animation: glowing 3s infinite alternate;
+}
+
+.spotify-card h3 {
+  margin: 10px 0;
+  color: #00f0ff;
+  font-size: 1.2rem;
+}
+
+.spotify-card .spotify-logo {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
 /* FOOTER */
 .footer {
   text-align: center;
@@ -249,6 +316,17 @@ body {
   from { opacity: 0; transform: translateY(50px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+@keyframes stars {
+  from { background-position: 0 0; }
+  to { background-position: -10000px 5000px; }
+}
+
+@keyframes glowing {
+  0% { box-shadow: 0 0 15px #00f0ff, 0 0 25px #ff00ff; }
+  100% { box-shadow: 0 0 25px #ff00ff, 0 0 40px #00f0ff; }
+}
+
 /* Scroll Reveal Animation */
 .reveal {
   opacity: 0;
@@ -260,6 +338,7 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
 /* ==== BACKGROUND FUTURISTIK ==== */
 body {
   margin: 0;
@@ -280,21 +359,4 @@ body::before {
   opacity: 0.4;
   animation: stars 60s linear infinite;
   z-index: -1;
-}
-
-@keyframes stars {
-  from { background-position: 0 0; }
-  to { background-position: -10000px 5000px; }
-}
-
-/* ==== ANIMASI SCROLL ==== */
-.reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
 }
